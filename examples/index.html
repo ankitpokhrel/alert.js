@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Alerts.js</title>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="../dist/alert.default.min.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<script src="../dist/alert.min.js"></script>
+</head>
+<body>
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+		window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));	
+	</script>
+
+	<div class="container">
+		<a href="javascript:void(0)" onclick="fromTop()" class="link">Alert</a>
+		<a href="javascript:void(0)" onclick="fromLeft()" class="link">Confirm</a>
+		<a href="javascript:void(0)" onclick="fromRight()" class="link">Prompt</a>
+		<a href="javascript:void(0)" onclick="fromBottom()" class="link">Bottom</a>
+		<div class="countdown">
+			<p>
+				New popup in
+			</p>
+			<span id="counter">10</span>
+			<p class="sec">Sec</p>
+		</div>
+		<div id="info" style="display: none">
+			<div style="width: 90%; margin: 0 auto">
+				<p>
+				 This project is in its initial phase. We are continuously working on improvements 
+				 to make this project better. Some of the cool features are still in development.
+				 <br/><br/>
+				 So feel free to try and report any bug found. Pull requests, issues, and plugin 
+				 recommendations are more than welcome!
+				</p>
+				<br/>
+				<div class="fb-share-button" data-href="https://github.com/ankitpokhrel/alert.js" data-layout="button_count" class="social"></div>
+				<div class="social" style="position: relative; top: 3px; left: 5px;"><a class="twitter-share-button" href="https://twitter.com/share" data-via="twitterdev" data-url: "https://github.com/ankitpokhrel/alert.js">Tweet</a></div>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		function fromTop() {			
+			alertjs.show({
+				heading: 'Error!',
+				message: 'You must fill all fields to continue',
+				from: 'top',
+				effect: 'ease-in-bounce',
+				success: function() {
+					//user clicked ok button
+				},
+				cancelled: function() {
+					//user clicked cancel button
+				},
+				complete: function( val ) {
+					//this callback is available everytime
+					//val will help you decide if user clicked
+					//OK or Cancel
+				}
+			});
+		}
+
+		function fromLeft() {	
+			var opt = {
+				type: 'confirm',
+				heading: 'Confirm',
+				message: 'Are you sure you want to perform this action?',
+				buttons: {
+					OK: {
+						label: 'Yes',
+						attrs: {
+							'class': 'btn btn-ok',
+							id: 'ok_btn'
+						}
+					},
+					CANCEL: {
+						label: 'No',
+						attrs: {
+							'class': 'btn btn-cancel'
+						}
+					}
+				},
+				wait: 100,
+				effect: 'ease-in-bounce',
+				from: 'left',				
+				success: function() {
+					console.log('You clicked success');
+				},
+				cancelled: function() {
+					console.log('You clicked cancel');
+				},
+				complete: function(val) {
+					if( val ) {
+						console.log('You clicked success');
+					} else {
+						console.log('You clicked cancel');
+					}
+					
+				}
+			};
+
+			alertjs.show(opt);
+
+		}
+
+		function fromRight() {			
+			alertjs.show({
+				type: 'prompt',
+				heading: 'Alert.js',
+				message: 'Enter your name to continue:',
+				buttons: {
+					OK: {
+						label: 'Continue',
+						attrs: {
+							'class': 'btn btn-ok',
+							id: 'ok_btn'
+						}
+					},
+					CANCEL: {
+						label: 'Go Back',
+						attrs: {
+							'class': 'btn btn-cancel'
+						}
+					}
+				},
+				success: function(val) {
+					console.log(val);
+				},
+				cancelled: function() {
+
+				},
+				complete: function(status, val) {
+					if( status ) {
+						console.log(val);
+					} else {
+						console.log('empty');
+					}
+				},
+				wait: 0,
+				effect: 'ease-in-bounce',
+				from: 'right'
+			});
+		}
+
+		function fromBottom() {			
+			alertjs.show({
+				type: 'alert',
+				heading: 'Alert.js',
+				message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id debitis corrupti laudantium quod officia rem? Soluta qui ad vitae czm. Commodi magnam animi perferendis sit rem expedita, nam minima dolorem!',				
+				from: 'bottom',
+				effect: 'ease-in-bounce',
+				success: function() {
+					console.log('some test');
+				}
+			});
+		}		
+		
+		window.onload = function() {			
+			var i = 10;
+			var countdown = function() {			
+				--i;
+				if( i >= 0 ) {
+					document.getElementById('counter').innerHTML = i;
+				} else {
+					clearInterval(interval);
+					var countdown = document.querySelector('.countdown');
+					countdown.parentNode.removeChild(countdown);
+				}
+			}
+
+			var interval = setInterval(countdown, 1000);
+
+			setTimeout(function() {
+				alertjs.show({
+						heading: 'Welcome to alert.js!',
+						message: '#info',
+						buttons: {
+							OK: {
+								label: 'Continue',						
+							}
+						},
+						effect: 'shake',
+						overlay: false,
+					});
+				}, 	10000);
+		}
+	</script>
+</body>
+</html>

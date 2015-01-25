@@ -1,0 +1,44 @@
+body {
+	font-family: arial, helvetica, 'sans serif';
+}
+
+.container {
+	margin: 20px auto;
+	width: 75%;
+	text-align: center;
+}
+
+.link {
+	padding: 10px;
+	border: 1px solid #5cb85c;
+	text-decoration: none;
+	display: inline-block;
+	min-width: 80px;
+	text-align: center;
+	margin: 10px;
+	background: #5cb85c;
+	color: #fff;
+}
+
+.countdown {
+	font-size: 21px;
+	margin: 50px;
+}
+
+.sec {
+	margin-top: 0 !important;
+	font-size: 12px;
+}
+
+.countdown p {
+	margin: 20px 0;
+}
+
+#counter {
+	font-family: 'courier new';
+	font-size: 48px;
+}
+
+.social {
+	display: inline-block;
+}

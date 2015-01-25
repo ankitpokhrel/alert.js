@@ -1,0 +1,33 @@
+{
+  "name": "alert.js",
+  "version": "0.0.0-alpha",
+  "author": "Ankit Pokhrel",
+  "description": "Beautifully crafted responsive javascript alert boxes.",
+  "homepage": "http://ankitpokhrel.com.np/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ankitpokhrel/alert.js.git"
+  },
+  "license": "MIT",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [
+    "alert",
+    "javascript",
+    "fancy alert"
+  ],
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-uglify": "^0.7.0",
+    "karma": "~0.12.31",
+    "karma-firefox-launcher": "~0.1.4",
+    "jasmine-core": "~2.1.3",
+    "karma-jasmine": "~0.3.5",
+    "karma-chrome-launcher": "~0.1.7",
+    "grunt-contrib-cssmin": "~0.11.0",
+    "grunt-contrib-copy": "~0.7.0"
+  }
+}
