@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>alert.js by ankitpokhrel</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>alert.js</h1>
+        <h2>Beautifully crafted responsive javascript alert boxes.</h2>
+        <a href="https://github.com/ankitpokhrel/alert.js" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="alertjs" class="anchor" href="#alertjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Alert.js</h1>
+
+<p>Beautifully crafted responsive javascript alert boxes.</p>
+
+<p>This project is in its initial phase. We are continuously working on improvements to make this project better. 
+Some of the cool features are still in development. </p>
+
+<p>So feel free to try and report any bug found. Pull requests, issues, and plugin recommendations are more than welcome!</p>
+
+<blockquote>
+<p>This project is written in plain javascript and has no dependencies.</p>
+</blockquote>
+
+<h2>
+<a id="version" class="anchor" href="#version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version</h2>
+
+<p>Current version is v0.0.0-alpha (5.9KB minified)</p>
+
+<h2>
+<a id="we-are-currently-working-on" class="anchor" href="#we-are-currently-working-on" aria-hidden="true"><span class="octicon octicon-link"></span></a>We are currently working on</h2>
+
+<ul>
+<li>Demo page</li>
+<li>Extended documentation</li>
+<li>Tests</li>
+</ul>
+
+<h2>
+<a id="browser-support" class="anchor" href="#browser-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browser Support</h2>
+
+<p>All modern browsers and Internet Explorer 9+</p>
+
+<h2>
+<a id="platforms-we-are-testing-on" class="anchor" href="#platforms-we-are-testing-on" aria-hidden="true"><span class="octicon octicon-link"></span></a>Platforms we are testing on</h2>
+
+<ul>
+<li>
+<p>Ubuntu 14.04 LTS  </p>
+
+<ul>
+<li>Mozilla Firefox 34+, Chrome &amp; Chromium 38+, Opera 25+<br>
+</li>
+</ul>
+</li>
+<li>
+<p>Windows 7 &amp; 8  </p>
+
+<ul>
+<li>Internet Explorer 9+, Firefox 34+, Chrome 38+, Opera 25+, Safari 5.1.7<br>
+</li>
+</ul>
+</li>
+<li><p>iPhone 4 &amp; 5  </p></li>
+<li>Android (Samsung &amp; Nexus)<br>
+</li>
+</ul>
+
+<h3>
+<a id="setting-up-entire-project-locally" class="anchor" href="#setting-up-entire-project-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up entire project locally</h3>
+
+<ol>
+<li>
+<p>Clone the repo  </p>
+
+<pre><code>git clone git@github.com:ankitpokhrel/alert.js.git
+</code></pre>
+</li>
+<li>
+<p>Install dev dependencies  </p>
+
+<pre><code> npm install  
+ npm update
+</code></pre>
+</li>
+<li>
+<p>Make changes. jshint and uglify using grunt.  </p>
+
+<pre><code>grunt
+</code></pre>
+</li>
+<li>
+<p>Run jasmine tests using karma  </p>
+
+<pre><code>karma start
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<ol>
+<li>
+<p>Include script  </p>
+
+<pre><code>&lt;script src="dist/alert.min.js"&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>
+<p>Include style  </p>
+
+<pre><code>&lt;link rel="stylesheet" href="dist/alert.default.min.css" /&gt;
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Usage</h2>
+
+<p><strong>Alert box</strong>  </p>
+
+<pre><code>alertjs.show({
+    heading: 'Error!',
+    message: 'The action you performed is not permitted!',
+    from: 'top', //drop from top,
+    effect: 'ease-in-bounce',
+    wait: 500,
+    success: function() {
+        //user clicked OK button
+    },
+    cancelled: function() {
+        //user clicked cancel button
+    },
+    complete: function( val ) {
+        //this callback is available everytime.
+        //val determines what user clicked.
+    }
+});
+</code></pre>
+
+<p><strong>Confirm dialog</strong>  </p>
+
+<pre><code>alertjs.show({
+    type: 'confirm',
+    heading: 'Confirm',
+    message: 'Are you sure you want to perform this action?',
+    from: 'left', //slide from left     
+    complete: function( val ) {
+        if( val ) {
+            //clicked ok
+        } else {
+            //clicked cancel
+        }
+    }
+});
+</code></pre>
+
+<p><strong>Prompt dialog</strong>  </p>
+
+<pre><code>alertjs.show({
+    type: 'prompt',
+    heading: 'Please enter your name to continue',
+    message: 'Enter your name here:',
+    from: 'right', //slide from left
+    success: function( val ) {
+        //user clicked OK button
+        //input box value will be available here
+        console.log(val);
+    },
+    cancelled: function() {
+        //user clicked cancel button
+    },
+    complete: function( status, val ) {
+        console.log(status, val);
+    }
+});
+</code></pre>
+
+<p><strong>Using custom HTML for message</strong><br>
+HTML can be in any format but it should be wrapped with an ID</p>
+
+<pre><code>&lt;div id="myCustomDialog" style="display: none"&gt;
+    &lt;div class="dialogWrapper"&gt;
+        Like us on facebook
+        &lt;!-- facebook like box --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Call alert box as follow</p>
+
+<pre><code>alertjs.show({
+    heading: 'Error!',
+    message: '#myCustomDialog', //must be an id
+    from: 'top',
+});
+</code></pre>
+
+<p><strong>Using custom attribute for buttons</strong><br>
+You can provide label and attributes for button as shown below.</p>
+
+<pre><code>alertjs.show({
+    type: 'confirm',
+    heading: 'Delete Permanently',
+    message: 'Are you sure you want to delete the file permanently?',
+    buttons: {
+        OK: {
+            label: 'Continue',
+            attrs: {
+                'class': 'continue btn',
+                id: 'continueBtn'
+            }
+        },
+        CANCEL: {
+            label: 'Go back',
+            attrs: {
+                'class': 'btn btn-back'
+            }
+        }
+    },
+    wait: 500
+});
+</code></pre>
+
+<p><strong>Display alert 10sec after site loads</strong>  </p>
+
+<pre><code>window.onload = function() {
+    setTimeout(function() {
+        alertjs.show({
+                heading: 'Welcome to our site!',
+                message: 'Thank you for visiting our site.',
+                buttons: {
+                    OK: {
+                        label: 'Continue'
+                    }
+                },
+                effect: 'shake',
+                overlay: false,
+            });
+        }, 10000);
+}
+</code></pre>
+
+<h2>
+<a id="available-options" class="anchor" href="#available-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Available Options</h2>
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>Alert box type: <code>alert</code>, <code>confirm</code> or <code>prompt</code>
+</td>
+<td>alert</td>
+</tr>
+<tr>
+<td>heading</td>
+<td>Main heading</td>
+<td>empty</td>
+</tr>
+<tr>
+<td>subHeading</td>
+<td>Displayed below main heading</td>
+<td>empty</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Message to display in body section. <code>string</code> or <code>#elementId</code>. You can provide id of an element to get html data.</td>
+<td>empty</td>
+</tr>
+<tr>
+<td>buttons</td>
+<td>Lists button settings. Can be <code>false</code>.</td>
+<td></td>
+</tr>
+<tr>
+<td>OK</td>
+<td>Used with buttons and provides settings for <code>OK</code> button.</td>
+<td><code>{label: 'Ok', attrs: {id: 'btn_ok', 'class': 'alert-js-btn alert-js-btn-ok'}}</code></td>
+</tr>
+<tr>
+<td>CANCEL</td>
+<td>Used with buttons and provides settings for <code>CANCEL</code> button.</td>
+<td><code>{label: 'Ok', attrs: {id: 'btn_ok', 'class': 'alert-js-btn alert-js-btn-ok'}}</code></td>
+</tr>
+<tr>
+<td>overlay</td>
+<td>Show/hide overlay. <code>true</code> or <code>false</code>.</td>
+<td>true</td>
+</tr>
+<tr>
+<td>effect</td>
+<td>Animation effect to show. <code>ease-in</code>, <code>ease-in-bounce</code> or <code>shake</code>
+</td>
+<td>ease-in</td>
+</tr>
+<tr>
+<td>from</td>
+<td>Determines where to start effect from. <code>top</code>, <code>left</code>, <code>right</code>, <code>bottom</code>, <code>middle</code>.</td>
+<td>top</td>
+</tr>
+<tr>
+<td>wait</td>
+<td>Delay in milliseconds. Wait for certain time before showing alert.</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="callbacks" class="anchor" href="#callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Callbacks</h2>
+
+<table>
+<thead>
+<tr>
+<th>Callback</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>success</td>
+<td>Available when user clicks OK button. Gets input value when type is prompt.</td>
+</tr>
+<tr>
+<td>cancelled</td>
+<td>Available when user clicks CANCEL button. Gets input value when type is prompt.</td>
+</tr>
+<tr>
+<td>complete</td>
+<td>This callback is available both when user clicks OK and CANCEL button. Gets a value to determine what user clicked. Also gets input value when type is prompt.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="known-bugs" class="anchor" href="#known-bugs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known bugs</h2>
+
+<ol>
+<li>Animation is not smooth sometimes.</li>
+</ol>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>alert.js is licensed under MIT <a href="http://www.opensource.org/licenses/MIT">http://www.opensource.org/licenses/MIT</a></p>
+
+<h2>
+<a id="copyright" class="anchor" href="#copyright" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright</h2>
+
+<p>Copyright ©, Ankit Pokhrel (<a href="http://ankitpokhrel.com.np">http://ankitpokhrel.com.np</a>, <a href="https://github.com/ankitpokhrel" class="user-mention">@ankitpokhrel</a>)</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/ankitpokhrel/alert.js/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/ankitpokhrel/alert.js/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/ankitpokhrel/alert.js"></a> is maintained by <a href="https://github.com/ankitpokhrel">ankitpokhrel</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
