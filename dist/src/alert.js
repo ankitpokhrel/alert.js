@@ -13,16 +13,16 @@
      * @constructor
      */
     var Alert = function() {
-
+        
         /** @private */
         var
 
             //default options
             defaults = {
                 type: 'alert',
-                heading: '',
-                subHeading: '',
-                message: '',
+                title: '',
+                subtitle: '',
+                text: '',
                 buttons: {
                     OK: {
                         label: 'Ok',
@@ -47,7 +47,7 @@
                 cancelled: null,
                 complete: null
             },
-            
+
             /*
               Create and assemble different component of alert boxes
               @param  {Object} options user provided settings
@@ -70,10 +70,10 @@
                 //create elements
                 a.create('layer');
                 a.create('header');
-                a.create('mainHeading');
+                a.create('title');
 
-                if( a.options.subHeading !== '' ) {
-                    a.create('subHeading');
+                if( a.options.subtitle !== '' ) {
+                    a.create('subtitle');
                 }
                 
                 a.create('body');
@@ -106,8 +106,8 @@
                 document.body.appendChild(a.layer);
                 a.layer.appendChild(a.header);
                 a.layer.appendChild(a.body);
-                put(a.header, a.heading);
-                put(a.header, a.subHeading);
+                put(a.header, a.title);
+                put(a.header, a.subtitle);
                 put(a.body, a.input);
                 put(a.layer, a.footer);
 
@@ -140,7 +140,7 @@
 
             //attach different events
             addEvent = function( status ) {
-                var a = fn(),
+                var a = fn().ref,
                     o = a.artisan.options;
 
                 a.hide();
@@ -165,8 +165,8 @@
             },
 
             /* Animate and show alert box */
-            animate = function() {
-                var a = fn();
+            animate = function(a) {
+                _.wait();
                 if( Object.keys(a).length > 0 ){
                     a = a.artisan;
 
@@ -209,20 +209,32 @@
 
             },
 
+            //fire animation, if any
+            fire = function() {
+                if( !_lock ) {                
+                    var o = fn(),
+                        t = make.call(o.ref, o.opt);
+
+                    animate(o.ref);
+                    return t;
+                }
+
+                return false;
+            },
+
             /* 
               provide access of public methods  to
               private functions via current object
             */
             fn = function() {
-                var o = _pool.slice(0, 1) ;
-                if( o.length > 0 ) {
-                    return o.pop();
+                if( _pool.length <= 0 ) {
+                    return {};
                 }
 
-                return {};
+                return _pool.slice(0, 1).pop();
             };
 
-            return {                
+            return {
                 /** @public */
                 artisan: new Creator(),
 
@@ -232,24 +244,16 @@
                  * @return {Object} Alert object
                  */
                 show: function( options ) {
-                    var that, self = this;
+                    var self = this;
 
                     if( typeof options.type === 'undefined' || !_.inArray(options.type, _.validTypes()) ) {
                         options.type = 'alert'; //default type
                     }
 
-                    //make a local copy of Alert to work on
-                    if( _pool.length === 0 ) {
-                        //only allow one instance at a time
-                        _pool.push(new Alert());
+                    //push a local copy of Alert to queue
+                    _pool.push({ref: new Alert(), opt: options});
 
-                        that = make.apply(fn(), arguments);
-                        animate();                                      
-                    } else {
-                        that = _pool.slice(0, 1);
-                    }
-
-                    this.artisan = that;
+                    this.artisan = fire();
                     return self;
                 },
 
@@ -267,16 +271,21 @@
                                     document.body.removeChild(elm);
                                     document.body.style.overflow = '';
                                     _pool.splice(0, 1);
+                                    _.release();
+                                    if( _pool.length > 0 ) {
+                                        fire();
+                                    }
                                 }, 400);
                             }
+
                        });
                 }
                
             };
     };
 
-    //alert box container
-    var _pool = [];
+    var _pool = [], //container
+        _lock = false; //mutex
 
     /**
      * Creator class
@@ -299,24 +308,23 @@
             //Creates header element.
             createHeader = function() {
                 var header = document.createElement('header');
-                header.setAttribute('id', 'alertJSheader');
-                header.className = 'alert-js-header alert-js-header-primary';
+                header.className = 'alert-js-header';
 
                 return header;
             },
 
-            //Creates main heading element.
-            createMainHeading = function() {
+            //Creates title element.
+            createTitle = function() {
                 var h1 = document.createElement('h1');
-                h1.innerHTML = this.options.heading;
+                h1.innerHTML = this.options.title;
 
                 return h1;
             },
 
             //Creates sub header element.
-            createSubHeading = function() {
+            createSubtitle = function() {
                 var h2 = document.createElement('h2');
-                h2.innerHTML = this.options.subHeading;
+                h2.innerHTML = this.options.subtitle;
 
                 return h2;
             },
@@ -324,12 +332,11 @@
             //Creates body.
             createBody = function() {
                 var body = document.createElement('div');
-                body.setAttribute('id', 'alertJSbody');
                 body.className = 'alert-js-body';
-                if( this.options.message.charAt(0) === '#' ) {
-                    body.innerHTML = _.pick(this.options.message.slice(1), true).innerHTML;
+                if( this.options.text.charAt(0) === '#' ) {
+                    body.innerHTML = _.pick(this.options.text.slice(1), true).innerHTML;
                 } else {
-                    body.innerHTML = this.options.message;
+                    body.innerHTML = this.options.text;
                 }
 
                 return body;
@@ -339,7 +346,6 @@
             createInput = function() {
                 var input = document.createElement('input');
                 input.setAttribute('type', 'text');
-                input.setAttribute('id', 'alertJSinput');
                 input.className = 'alert-js-input';
 
                 return input;
@@ -348,7 +354,6 @@
             //Creates footer element.
             createFooter = function() {
                 var footer = document.createElement('footer');
-                footer.setAttribute('id', 'alertJSfooter');
                 footer.className = 'alert-js-footer';
 
                 return footer;
@@ -403,8 +408,8 @@
             /** @public */
             layer: null,
             header: null,
-            heading: null,
-            subHeading: null,
+            title: null,
+            subtitle: null,
             body: null,
             input: null,
             footer: null,
@@ -428,11 +433,11 @@
                     case 'header':
                         return (this.header = createHeader.call(this));
 
-                    case 'mainHeading':
-                        return (this.heading = createMainHeading.call(this));
+                    case 'title':
+                        return (this.title = createTitle.call(this));
 
-                    case 'subHeading':
-                        return (this.subHeading = createSubHeading.call(this));
+                    case 'subtitle':
+                        return (this.subtitle = createSubtitle.call(this));
 
                     case 'body':
                         return (this.body = createBody.call(this));
@@ -472,6 +477,16 @@
             } else {
                 return document.getElementById(elm);
             }
+        },
+
+        /* lock mutex */
+        wait: function() {
+            _lock = true;
+        },
+
+        /* release mutex */
+        release: function() {
+            _lock = false;
         },
 
         /* All valid alert boxes */
