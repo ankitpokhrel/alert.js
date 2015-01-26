@@ -32,30 +32,23 @@ html:lang(en)>body  .alert-js {
   display: block;
 }
 
-.alert-primary {
-  border-color: #337ab7;
-}
-
-.alert-js-header-primary {
-  background-color: #337ab7;
-  border-color: #337ab7;
-  color: #fff;
-}
-
 .alert-js-header {
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   border-radius: 0;
   padding: 9px 14px;
+  background-color: #337ab7;
+  border-color: #337ab7;
+  color: #fff;
 }
 
-#alertJSheader h1 {
+.alert-js-header h1 {
   font-size: 1em;
   line-height: 1.2em;
 }
 
-#alertJSheader h2 {
+.alert-js-header h2 {
   font-size: 0.9em;
   line-height: 1em;
   padding-top: 2px;
@@ -290,12 +283,12 @@ and (max-width : 769px) {
 
 @media only screen 
 and (max-width : 450px) {
-  #alertJSheader h1 {
+  .alert-js-header h1 {
     font-size: 0.8em;
     line-height: 1em;
   }
 
-  #alertJSheader h2 {
+  .alert-js-header h2 {
     font-size: 0.7em;
     line-height: 0.9em;
   }
