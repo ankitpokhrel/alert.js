@@ -5,9 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Alerts.js</title>
 	<link rel="stylesheet" href="css/reset.css" />
-	<link rel="stylesheet" href="../dist/alert.default.min.css" />
+	<link rel="stylesheet" href="../theme/alert.default.css" />
 	<link rel="stylesheet" href="css/main.css" />
-	<script src="../dist/alert.min.js"></script>
+	<script src="../lib/alert.js"></script>
 </head>
 <body>
 	<div id="fb-root"></div>
@@ -45,8 +45,8 @@
 				 recommendations are more than welcome!
 				</p>
 				<br/>
-				<div class="fb-share-button" data-href="https://github.com/ankitpokhrel/alert.js" data-layout="button_count" class="social"></div>
-				<div class="social" style="position: relative; top: 3px; left: 5px;"><a class="twitter-share-button" href="https://twitter.com/share" data-via="twitterdev" data-url: "https://github.com/ankitpokhrel/alert.js">Tweet</a></div>
+				<div class="fb-share-button" data-href="https://ankitpokhrel.com.np/alert.js" data-layout="button_count" class="social"></div>
+				<div class="social" style="position: relative; top: 3px; left: 5px;"><a class="twitter-share-button" href="https://twitter.com/share" data-via="twitterdev" data-url: "https://ankitpokhrel.com.np/alert.js">Tweet</a></div>
 			</div>
 		</div>
 	</div>
@@ -54,8 +54,8 @@
 	<script>
 		function fromTop() {			
 			alertjs.show({
-				heading: 'Error!',
-				message: 'You must fill all fields to continue',
+				title: 'Error!',
+				text: 'You must fill all fields to continue',
 				from: 'top',
 				effect: 'ease-in-bounce',
 				success: function() {
@@ -75,8 +75,8 @@
 		function fromLeft() {	
 			var opt = {
 				type: 'confirm',
-				heading: 'Confirm',
-				message: 'Are you sure you want to perform this action?',
+				title: 'Confirm',
+				text: 'Are you sure you want to perform this action?',
 				buttons: {
 					OK: {
 						label: 'Yes',
@@ -118,8 +118,9 @@
 		function fromRight() {			
 			alertjs.show({
 				type: 'prompt',
-				heading: 'Alert.js',
-				message: 'Enter your name to continue:',
+				title: 'Alert.js',
+				text: 'Enter your name to continue:',
+				overlay: false,
 				buttons: {
 					OK: {
 						label: 'Continue',
@@ -136,7 +137,12 @@
 					}
 				},
 				success: function(val) {
-					console.log(val);
+					alertjs.show({
+						title: 'Alert.js',
+						from: 'top',
+						effect: 'ease-in-bounce',
+						text: 'Your name is ' + val
+					});
 				},
 				cancelled: function() {
 
@@ -157,8 +163,8 @@
 		function fromBottom() {			
 			alertjs.show({
 				type: 'alert',
-				heading: 'Alert.js',
-				message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id debitis corrupti laudantium quod officia rem? Soluta qui ad vitae czm. Commodi magnam animi perferendis sit rem expedita, nam minima dolorem!',				
+				title: 'Alert.js',
+				text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id debitis corrupti laudantium quod officia rem? Soluta qui ad vitae czm. Commodi magnam animi perferendis sit rem expedita, nam minima dolorem!',				
 				from: 'bottom',
 				effect: 'ease-in-bounce',
 				success: function() {
@@ -167,9 +173,9 @@
 			});
 		}		
 		
-		window.onload = function() {			
+		window.onload = function() {
 			var i = 10;
-			var countdown = function() {			
+			var countdown = function() {
 				--i;
 				if( i >= 0 ) {
 					document.getElementById('counter').innerHTML = i;
@@ -184,11 +190,11 @@
 
 			setTimeout(function() {
 				alertjs.show({
-						heading: 'Welcome to alert.js!',
-						message: '#info',
+						title: 'Welcome to alert.js!',
+						text: '#info',
 						buttons: {
 							OK: {
-								label: 'Continue',						
+								label: 'Continue',
 							}
 						},
 						effect: 'shake',

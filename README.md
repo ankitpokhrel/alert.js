@@ -67,8 +67,8 @@ All modern browsers and Internet Explorer 9+
 **Alert box**  
 ```
 alertjs.show({
-	heading: 'Error!',
-	message: 'The action you performed is not permitted!',
+	title: 'Error!',
+	text: 'The action you performed is not permitted!',
 	from: 'top', //drop from top,
 	effect: 'ease-in-bounce',
 	wait: 500,
@@ -89,8 +89,8 @@ alertjs.show({
 ```
 alertjs.show({
 	type: 'confirm',
-	heading: 'Confirm',
-	message: 'Are you sure you want to perform this action?',
+	title: 'Confirm',
+	text: 'Are you sure you want to perform this action?',
 	from: 'left', //slide from left		
 	complete: function( val ) {
 		if( val ) {
@@ -106,8 +106,8 @@ alertjs.show({
 ```
 alertjs.show({
 	type: 'prompt',
-	heading: 'Please enter your name to continue',
-	message: 'Enter your name here:',
+	title: 'Please enter your name to continue',
+	text: 'Enter your name here:',
 	from: 'right', //slide from left
 	success: function( val ) {
 		//user clicked OK button
@@ -137,8 +137,8 @@ HTML can be in any format but it should be wrapped with an ID
 Call alert box as follow
 ```
 alertjs.show({
-	heading: 'Error!',
-	message: '#myCustomDialog', //must be an id
+	title: 'Error!',
+	text: '#myCustomDialog', //must be an id
 	from: 'top',
 });
 ```
@@ -148,8 +148,8 @@ You can provide label and attributes for button as shown below.
 ```
 alertjs.show({
 	type: 'confirm',
-	heading: 'Delete Permanently',
-	message: 'Are you sure you want to delete the file permanently?',
+	title: 'Delete Permanently',
+	text: 'Are you sure you want to delete the file permanently?',
 	buttons: {
 		OK: {
 			label: 'Continue',
@@ -174,8 +174,8 @@ alertjs.show({
 window.onload = function() {
 	setTimeout(function() {
 		alertjs.show({
-				heading: 'Welcome to our site!',
-				message: 'Thank you for visiting our site.',
+				title: 'Welcome to our site!',
+				text: 'Thank you for visiting our site.',
 				buttons: {
 					OK: {
 						label: 'Continue'
@@ -192,9 +192,9 @@ window.onload = function() {
  Option     | Description                                                                                                      | Default      
 ------------|------------------------------------------------------------------------------------------------------------------|--------------
  type       | Alert box type: `alert`, `confirm` or `prompt`                                                                   | alert        
- heading    | Main heading                                                                                                     | empty        
- subHeading | Displayed below main heading                                                                                     | empty        
- message    | Message to display in body section. `string` or `#elementId`. You can provide id of an element to get html data. | empty        
+ title    | Main heading                                                                                                     | empty        
+ subtitle | Displayed below main heading                                                                                     | empty        
+ text    | Message to display in body section. `string` or `#elementId`. You can provide id of an element to get html data. | empty        
  buttons    | Lists button settings. Can be `false`.                                                                           |              
  OK         | Used with buttons and provides settings for `OK` button.     | `{label: 'Ok', attrs: {id: 'btn_ok', 'class': 'alert-js-btn alert-js-btn-ok'}}`
  CANCEL     | Used with buttons and provides settings for `CANCEL` button. | `{label: 'Ok', attrs: {id: 'btn_ok', 'class': 'alert-js-btn alert-js-btn-ok'}}`
