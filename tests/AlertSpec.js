@@ -2,9 +2,9 @@
 describe('Alert library', function() {
 	var a = alertjs.show({
 				type: 'prompt',
-				heading: 'Test heading',
-				subHeading: 'Test subheading',
-				message: 'Test message',
+				title: 'Test heading',
+				subtitle: 'Test subheading',
+				text: 'Test message',
 				buttons: {
 					OK: {
 						label: 'Continue',
@@ -36,16 +36,16 @@ describe('Alert library', function() {
 			expect(a.artisan.options.type).toEqual('prompt');
 		});
 
-		it('should have heading', function() {
-			expect(a.artisan.options.heading).toEqual('Test heading');
+		it('should have title', function() {
+			expect(a.artisan.options.title).toEqual('Test heading');
 		});
 
-		it('should have subheading', function() {
-			expect(a.artisan.options.subHeading).toEqual('Test subheading');
+		it('should have subtitle', function() {
+			expect(a.artisan.options.subtitle).toEqual('Test subheading');
 		});
 
-		it('should have message', function() {
-			expect(a.artisan.options.message).toEqual('Test message');
+		it('should have text', function() {
+			expect(a.artisan.options.text).toEqual('Test message');
 		});
 
 		it('should wait 100ms', function() {
@@ -120,7 +120,7 @@ describe('Alert library', function() {
 		it('create htmlnode for footer element', function() {
 			expect(a.artisan.footer).not.toBeNull();
 
-			var footer = '<footer class="alert-js-footer" id="alertJSfooter">' + 
+			var footer = '<footer class="alert-js-footer">' + 
 							'<button class="alert-js-btn alert-js-btn-ok" id="continue_btn">Continue</button>' + 
 							'<button class="alert-js-btn alert-js-btn-cancel btn btn-back" id="btn_cancel">Back</button>' + 
 						'</footer>';
@@ -130,19 +130,19 @@ describe('Alert library', function() {
 
 	describe('Heading', function() {
 		it('create htmlnode for heading element', function() {
-			expect(a.artisan.heading).not.toBeNull();
+			expect(a.artisan.title).not.toBeNull();
 
-			var heading = '<h1>Test heading</h1>';
-			expect(a.artisan.heading.outerHTML).toBe(heading);
+			var title = '<h1>Test heading</h1>';
+			expect(a.artisan.title.outerHTML).toBe(title);
 		});
 	});
 
 	describe('Sub Heading', function() {
 		it('create htmlnode for subheading element', function() {
-			expect(a.artisan.subHeading).not.toBeNull();
+			expect(a.artisan.subtitle).not.toBeNull();
 
-			var subHeading = '<h2>Test subheading</h2>';
-			expect(a.artisan.subHeading.outerHTML).toBe(subHeading);
+			var subtitle = '<h2>Test subheading</h2>';
+			expect(a.artisan.subtitle.outerHTML).toBe(subtitle);
 		});
 	});
 
@@ -150,7 +150,7 @@ describe('Alert library', function() {
 		it('create htmlnode for header element', function() {
 			expect(a.artisan.header).not.toBeNull();
 
-			var header = '<header class="alert-js-header alert-js-header-primary" id="alertJSheader">' + 
+			var header = '<header class="alert-js-header">' + 
 							'<h1>Test heading</h1>' + 
 							'<h2>Test subheading</h2>' + 
 						'</header>';
@@ -162,9 +162,9 @@ describe('Alert library', function() {
 		it('create htmlnode for main body element', function() {
 			expect(a.artisan.body).not.toBeNull();
 
-			var body = '<div class="alert-js-body" id="alertJSbody">' + 
+			var body = '<div class="alert-js-body">' + 
 							'Test message' + 
-							'<input class="alert-js-input" id="alertJSinput" type="text">' + 
+							'<input class="alert-js-input" type="text">' + 
 						'</div>';
 			expect(a.artisan.body.outerHTML).toBe(body);
 		});
@@ -174,7 +174,7 @@ describe('Alert library', function() {
 		it('create htmlnode for input element', function() {
 			expect(a.artisan.input).not.toBeNull();
 
-			var inp = '<input class="alert-js-input" id="alertJSinput" type="text">';
+			var inp = '<input class="alert-js-input" type="text">';
 			expect(a.artisan.input.outerHTML).toBe(inp);
 		});
 	});
@@ -184,15 +184,15 @@ describe('Alert library', function() {
 			expect(a.artisan.layer).not.toBeNull();
 
 			var html = '<section class="alert-js alert-js-animation-left" id="alertJS">' +
-							'<header class="alert-js-header alert-js-header-primary" id="alertJSheader">' +
+							'<header class="alert-js-header">' +
 								'<h1>Test heading</h1>' + 
 								'<h2>Test subheading</h2>' + 
 							'</header>' + 
-							'<div class="alert-js-body" id="alertJSbody">' + 
+							'<div class="alert-js-body">' + 
 								'Test message' + 
-								'<input class="alert-js-input" id="alertJSinput" type="text">' + 
+								'<input class="alert-js-input" type="text">' + 
 							'</div>' + 
-							'<footer class="alert-js-footer" id="alertJSfooter">' + 
+							'<footer class="alert-js-footer">' + 
 								'<button class="alert-js-btn alert-js-btn-ok" id="continue_btn">Continue</button>' + 
 								'<button class="alert-js-btn alert-js-btn-cancel btn btn-back" id="btn_cancel">Back</button>' + 
 							'</footer>' + 
