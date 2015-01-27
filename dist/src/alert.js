@@ -97,7 +97,6 @@
                 }
                
                 assemble(a);
-                
                 return a; //return creator
             },
 
@@ -129,6 +128,10 @@
                         addEvent(false);
                     });
                 }
+
+                if( a.input !== null ) {
+                    a.input.focus();
+                }
             },
            
             /* Append element to DOM if it exists */
@@ -147,7 +150,7 @@
 
                 if( status && o.success !== null ) {
                     if(o.type === 'prompt') { 
-                        o.success.call(this, a.artisan.input.value); 
+                        o.success.call(this, a.artisan.input.value);
                     } else { 
                         o.success.apply(this); 
                     }
@@ -177,10 +180,7 @@
                         if( !a.options.overlay ) {
                             a.overlay.style.visibility = 'hidden';
                         }
-
-                        //fix scrollbar
-                        document.body.style.overflow = 'hidden';
-
+                        
                         //start animation by switching classes
                         _.addClass(a.layer, 'alert-js-' + a.options.effect, function() {
                             //wait sometime for smooth animation
@@ -269,7 +269,6 @@
                                 setTimeout(function() {
                                     document.body.removeChild(overlay);
                                     document.body.removeChild(elm);
-                                    document.body.style.overflow = '';
                                     _pool.splice(0, 1);
                                     _.release();
                                     if( _pool.length > 0 ) {
