@@ -3,62 +3,39 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <link rel="stylesheet" type="text/css" href="javascripts/alert/alert.default.min.css">
-
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <script type="text/javascript" src="javascripts/alert/alert.min.js"></script>
-    <script type="text/javascript" src="javascripts/main.js"></script>
-
-    <title>alert.js - Beautifully crafted responsive javascript alert boxes</title>
+    <title>alert.js by ankitpokhrel</title>
   </head>
 
   <body>
-    <div id="fb-root"></div>
-    <script>
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));   
-    </script>
-    <div id="info" style="display: none">
-            <div style="width: 90%; margin: 0 auto">
-                <p>
-                 This project is in its initial phase. We are continuously working on improvements 
-                 to make this project better. Some of the cool features are still in development.
-                 <br/><br/>
-                 So feel free to try and report any bug found. Pull requests, issues, and plugin 
-                 recommendations are more than welcome!
-                </p>
-                <br/>
-                <div class="fb-share-button" data-href="https://github.com/ankitpokhrel/alert.js" data-layout="button_count" class="social"></div>
-                <div class="social" style="position: relative; top: 3px; left: 5px;"><a class="twitter-share-button" href="https://twitter.com/share" data-via="twitterdev" data-url: "https://github.com/ankitpokhrel/alert.js">Tweet</a></div>
-            </div>
-        </div>
-    <header>
+    <div id="container">
       <div class="inner">
-        <h1>alert.js</h1>
-        <h2>Beautifully crafted responsive javascript alert boxes.</h2>
-        <a href="https://github.com/ankitpokhrel/alert.js" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-         
+        <header>
+          <h1>alert.js</h1>
+          <h2>Beautifully crafted responsive javascript alert boxes.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/ankitpokhrel/alert.js/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/ankitpokhrel/alert.js/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/ankitpokhrel/alert.js" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="alertjs" class="anchor" href="#alertjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Alert.js</h1>
+
+<p>Beautifully crafted responsive javascript alert boxes.</p>
+
 <p>This project is in its initial phase. We are continuously working on improvements to make this project better. 
 Some of the cool features are still in development. </p>
 
@@ -167,8 +144,8 @@ Some of the cool features are still in development. </p>
 <p><strong>Alert box</strong>  </p>
 
 <pre><code>alertjs.show({
-    heading: 'Error!',
-    message: 'The action you performed is not permitted!',
+    title: 'Error!',
+    text: 'The action you performed is not permitted!',
     from: 'top', //drop from top,
     effect: 'ease-in-bounce',
     wait: 500,
@@ -189,8 +166,8 @@ Some of the cool features are still in development. </p>
 
 <pre><code>alertjs.show({
     type: 'confirm',
-    heading: 'Confirm',
-    message: 'Are you sure you want to perform this action?',
+    title: 'Confirm',
+    text: 'Are you sure you want to perform this action?',
     from: 'left', //slide from left     
     complete: function( val ) {
         if( val ) {
@@ -206,8 +183,8 @@ Some of the cool features are still in development. </p>
 
 <pre><code>alertjs.show({
     type: 'prompt',
-    heading: 'Please enter your name to continue',
-    message: 'Enter your name here:',
+    title: 'Please enter your name to continue',
+    text: 'Enter your name here:',
     from: 'right', //slide from left
     success: function( val ) {
         //user clicked OK button
@@ -237,8 +214,8 @@ HTML can be in any format but it should be wrapped with an ID</p>
 <p>Call alert box as follow</p>
 
 <pre><code>alertjs.show({
-    heading: 'Error!',
-    message: '#myCustomDialog', //must be an id
+    title: 'Error!',
+    text: '#myCustomDialog', //must be an id
     from: 'top',
 });
 </code></pre>
@@ -248,8 +225,8 @@ You can provide label and attributes for button as shown below.</p>
 
 <pre><code>alertjs.show({
     type: 'confirm',
-    heading: 'Delete Permanently',
-    message: 'Are you sure you want to delete the file permanently?',
+    title: 'Delete Permanently',
+    text: 'Are you sure you want to delete the file permanently?',
     buttons: {
         OK: {
             label: 'Continue',
@@ -274,8 +251,8 @@ You can provide label and attributes for button as shown below.</p>
 <pre><code>window.onload = function() {
     setTimeout(function() {
         alertjs.show({
-                heading: 'Welcome to our site!',
-                message: 'Thank you for visiting our site.',
+                title: 'Welcome to our site!',
+                text: 'Thank you for visiting our site.',
                 buttons: {
                     OK: {
                         label: 'Continue'
@@ -307,17 +284,17 @@ You can provide label and attributes for button as shown below.</p>
 <td>alert</td>
 </tr>
 <tr>
-<td>heading</td>
+<td>title</td>
 <td>Main heading</td>
 <td>empty</td>
 </tr>
 <tr>
-<td>subHeading</td>
+<td>subtitle</td>
 <td>Displayed below main heading</td>
 <td>empty</td>
 </tr>
 <tr>
-<td>message</td>
+<td>text</td>
 <td>Message to display in body section. <code>string</code> or <code>#elementId</code>. You can provide id of an element to get html data.</td>
 <td>empty</td>
 </tr>
@@ -404,23 +381,13 @@ You can provide label and attributes for button as shown below.</p>
 <p>Copyright ©, Ankit Pokhrel (<a href="http://ankitpokhrel.com.np">http://ankitpokhrel.com.np</a>, <a href="https://github.com/ankitpokhrel" class="user-mention">@ankitpokhrel</a>)</p>
         </section>
 
-        <aside id="sidebar">
-          <a href="javascript:void(0)" class="button" onclick="fromRight()">
-            <small>Demo</small>
-            Prompt Box
-          </a>     
-          <a href="https://github.com/ankitpokhrel/alert.js/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/ankitpokhrel/alert.js/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>        
-        </aside>
+        <footer>
+          alert.js is maintained by <a href="https://github.com/ankitpokhrel">ankitpokhrel</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
       </div>
     </div>
-
-  
   </body>
 </html>
