@@ -60,6 +60,10 @@ All modern browsers and Internet Explorer 9+
 
 2. Include style  
 	```
+	/* core css */
+	<link rel="stylesheet" href="dist/alert.core.min.css" />
+
+	/* theme: default or lite */
 	<link rel="stylesheet" href="dist/alert.default.min.css" />
 	```
 
