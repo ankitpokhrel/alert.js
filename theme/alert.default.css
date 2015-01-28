@@ -4,32 +4,11 @@
  */
 
 .alert-js {
-  background-color: #fff;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  min-width: 30%;
-  max-width: 60%; 
   font-family: 'Arial', 'helvetica', 'sans-serif';
-  position: fixed;
-  left: 50%;
-  top: 50%;
-
-  -webkit-transform: translate(-50%, -50%);
-     -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-       -o-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-
+  background-color: #fff;
   -webkit-box-shadow: 1px 0px 37px -3px rgba(0,0,0,0.75);
      -moz-box-shadow: 1px 0px 37px -3px rgba(0,0,0,0.75);
           box-shadow: 1px 0px 37px -3px rgba(0,0,0,0.75);
-
-  display: table;
-  z-index: 9999;
-}
-
-/* safari hack */
-html:lang(en)>body  .alert-js {
-  display: block;
 }
 
 .alert-js-header {
@@ -44,8 +23,8 @@ html:lang(en)>body  .alert-js {
 }
 
 .alert-js-header h1 {
-  font-size: 1em;
-  line-height: 1.2em;
+  font-size: 1.3em;
+  line-height: 1.5em;
   color: #fff;
 }
 
@@ -73,11 +52,9 @@ html:lang(en)>body  .alert-js {
 }
 
 .alert-js-btn {
-  -moz-user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
   cursor: pointer;
   display: inline-block;
+  border: none;
   font-size: 0.875em;
   font-weight: 400;
   margin-bottom: 0;
@@ -87,24 +64,30 @@ html:lang(en)>body  .alert-js {
   white-space: nowrap;
 }
 
-.alert-js-btn:hover {
-  -webkit-transition: opacity 1s ease-out;
-     -moz-transition: opacity 1s ease-out;
-      -ms-transition: opacity 1s ease-out;
-       -o-transition: opacity 1s ease-out;
-          transition: opacity 1s ease-out;
-
-  opacity: 0.75;
+.alert-js-btn-ok:hover {
+    background: rgba(45, 143, 3, 1);
+    -webkit-transition: all 1s ease 0.3s;
+       -moz-transition: all 1s ease 0.3s;
+         -o-transition: all 1s ease 0.3s;
+            transition: all 1s ease 0.3s;
 }
 
+.alert-js-btn-cancel:hover {
+    background: rgba(245, 0, 0, 1);
+    -webkit-transition: all 1s ease 0.3s;
+       -moz-transition: all 1s ease 0.3s;
+         -o-transition: all 1s ease 0.3s;
+            transition: all 1s ease 0.3s;
+}
+
+
 .alert-js-btn-ok {
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #149414;
   color: #fff;
 }
 
 .alert-js-btn-cancel {
-  background-color: #d9534f;
+  background-color: #FF1414;
   border-color: #d43f3a;
   color: #fff;
 }
@@ -126,8 +109,6 @@ html:lang(en)>body  .alert-js {
   left: 0;
   width: 100%;
   height: 100%;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";       /* IE 8 */
-  filter: alpha(opacity=40);  /* IE 5-7 */
   -moz-opacity: 0.4;          /* Netscape */
   -khtml-opacity: 0.4;        /* Safari 1.x */
   opacity: 0.4; 
@@ -152,155 +133,4 @@ html:lang(en)>body  .alert-js {
      -moz-transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
        -o-transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
           transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-}
-
-/* animation block */
-.alert-js-ease-in {
-  -webkit-transition: all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000);
-  -moz-transition: all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000);
-    -o-transition: all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000);
-       transition: all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000); /* ease-in */
-}
-
-.alert-js-ease-in-bounce {
-  -webkit-transition: all 500ms cubic-bezier(0.920, 0, 0.270, 1); /* older webkit */
-  -webkit-transition: all 500ms cubic-bezier(0.920, -0.005, 0.270, 1.650);
-   -moz-transition: all 500ms cubic-bezier(0.920, -0.005, 0.270, 1.650);
-     -o-transition: all 500ms cubic-bezier(0.920, -0.005, 0.270, 1.650);
-        transition: all 500ms cubic-bezier(0.920, -0.005, 0.270, 1.650); /* ease-in-bounce */
-}
-
-.alert-js-animation-top,
-.alert-js-animation-bottom,
-.alert-js-animation-left,
-.alert-js-animation-right {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-}
-
-.alert-js-animation-top {      
-  -webkit-transform: translate(-50%, -500%);
-     -moz-transform: translate(-50%, -500%);
-      -ms-transform: translate(-50%, -500%);
-       -o-transform: translate(-50%, -500%);
-          transform: translate(-50%, -500%);
-}
-
-.alert-js-animation-bottom {      
-   -webkit-transform: translate(-50%, 500%);
-      -moz-transform: translate(-50%, 500%);
-       -ms-transform: translate(-50%, 500%);
-        -o-transform: translate(-50%, 500%);
-           transform: translate(-50%, 500%);
-}
-
-.alert-js-animation-left {      
-  -webkit-transform: translate(-300%, -50%);
-     -moz-transform: translate(-300%, -50%);
-      -ms-transform: translate(-300%, -50%);
-       -o-transform: translate(-300%, -50%);
-          transform: translate(-300%, -50%);
-}
-
-.alert-js-animation-right {      
-  -webkit-transform: translate(300%, -50%);
-     -moz-transform: translate(300%, -50%);
-      -ms-transform: translate(300%, -50%);
-       -o-transform: translate(300%, -50%);
-          transform: translate(300%, -50%);
-}
-
-.alert-js-animation-middle {
-  -webkit-transition: opacity 0.4s ease-in-out;
-     -moz-transition: opacity 0.4s ease-in-out;
-       -o-transition: opacity 0.4s ease-in-out;
-          transition: opacity 0.4s ease-in-out;
-
-          opacity: 0;
-}
-
-@-webkit-keyframes shake {
-  0% { -webkit-transform: translate(-50%, -50%) rotate(-5deg); }
-  10% { -webkit-transform: translate(-50%, -50%) rotate(-10deg); }
-  20% { -webkit-transform: translate(-50%, -50%) rotate(-15deg); }
-  30% { -webkit-transform: translate(-50%, -50%) rotate(-20deg); }
-  40% { -webkit-transform: translate(-50%, -50%) rotate(-25deg); }
-  50% { -webkit-transform: translate(-50%, -50%) rotate(5deg); }
-  60% { -webkit-transform: translate(-50%, -50%) rotate(10deg); }
-  70% { -webkit-transform: translate(-50%, -50%) rotate(15deg); }
-  80% { -webkit-transform: translate(-50%, -50%) rotate(20deg); }
-  90% { -webkit-transform: translate(-50%, -50%) rotate(25deg); }
-  100% { -webkit-transform: translate(-50%, -50%) rotate(0deg); }
-}
-
-@-moz-keyframes shake {
-  0% { -moz-transform: translate(-50%, -50%) rotate(-5deg); }
-  10% { -moz-transform: translate(-50%, -50%) rotate(-10deg); }
-  20% { -moz-transform: translate(-50%, -50%) rotate(-15deg); }
-  30% { -moz-transform: translate(-50%, -50%) rotate(-20deg); }
-  40% { -moz-transform: translate(-50%, -50%) rotate(-25deg); }
-  50% { -moz-transform: translate(-50%, -50%) rotate(5deg); }
-  60% { -moz-transform: translate(-50%, -50%) rotate(10deg); }
-  70% { -moz-transform: translate(-50%, -50%) rotate(15deg); }
-  80% { -moz-transform: translate(-50%, -50%) rotate(20deg); }
-  90% { -moz-transform: translate(-50%, -50%) rotate(25deg); }
-  100% { -moz-transform: translate(-50%, -50%) rotate(0deg); }
-}
-
-@keyframes shake {
-  0% { transform: translate(-50%, -50%) rotate(-5deg); }
-  10% { transform: translate(-50%, -50%) rotate(-10deg); }
-  20% { transform: translate(-50%, -50%) rotate(-15deg); }
-  30% { transform: translate(-50%, -50%) rotate(-20deg); }
-  40% { transform: translate(-50%, -50%) rotate(-25deg); }
-  50% { transform: translate(-50%, -50%) rotate(5deg); }
-  60% { transform: translate(-50%, -50%) rotate(10deg); }
-  70% { transform: translate(-50%, -50%) rotate(15deg); }
-  80% { transform: translate(-50%, -50%) rotate(20deg); }
-  90% { transform: translate(-50%, -50%) rotate(25deg); }
-  100% { transform: translate(-50%, -50%) rotate(0deg); }
-}
-
-.alert-js-shake {
-  -webkit-animation: shake 0.5s linear 1;
-     -moz-animation: shake 0.5s linear 1;
-       -o-animation: shake 0.5s linear 1;
-          animation: shake 0.5s linear 1;
-
-}
-
-@media only screen 
-and (max-width : 769px) {
-  .alert-js-body, .alert-js-btn {
-    font-size: 0.9em;
-    line-height: 1.2em;
-  }
-
-  .alert-js {
-    max-width: 80%;
-  }
-}
-
-@media only screen 
-and (max-width : 450px) {
-  .alert-js-header h1 {
-    font-size: 0.8em;
-    line-height: 1em;
-  }
-
-  .alert-js-header h2 {
-    font-size: 0.7em;
-    line-height: 0.9em;
-  }
-
-  .alert-js-body, .alert-js-btn {
-    font-size: 0.8em;
-    line-height: 1.2em;
-  }
-
-  .alert-js {
-    max-width: 90%;
-    width: 90%;
-  }
 }
