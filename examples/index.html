@@ -5,7 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Alerts.js</title>
 	<link rel="stylesheet" href="css/reset.css" />
-	<link rel="stylesheet" href="../theme/alert.default.css" />
+	<link rel="stylesheet" href="../theme/alert.core.css" />
+	<link rel="stylesheet" href="../theme/alert.lite.css" />
 	<link rel="stylesheet" href="css/main.css" />
 	<script src="../lib/alert.js"></script>
 </head>
@@ -137,11 +138,15 @@
 					}
 				},
 				success: function(val) {
+					var value = 'Your name is ' + val;
+					if( val === '' ) {
+						value = 'You didn\'t type anything!';
+					}
 					alertjs.show({
 						title: 'Alert.js',
 						from: 'top',
 						effect: 'ease-in-bounce',
-						text: 'Your name is ' + val
+						text: value
 					});
 				},
 				cancelled: function() {
