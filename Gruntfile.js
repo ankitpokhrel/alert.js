@@ -21,7 +21,9 @@ module.exports = function(grunt) {
 		cssmin: {			
 			build: {
 				files: {
-					'dist/alert.default.min.css': ['theme/alert.default.css']
+					'dist/alert.core.min.css': ['theme/alert.core.css'],
+					'dist/alert.default.min.css': ['theme/alert.default.css'],
+					'dist/alert.lite.min.css': ['theme/alert.lite.css']
 				}
 			} 
 		},
