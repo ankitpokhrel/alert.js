@@ -1,0 +1,134 @@
+/**
+ * alert.js lite theme v0.0.0-alpha, 10.01.2014
+ * @author Ankit Pokhrel (http://ankitpokhrel.com.np, @ankitpokhrel)
+ */
+
+.alert-js {
+  font-family: 'Arial', 'helvetica', 'sans-serif';
+  background-color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 0px 37px -3px rgba(0,0,0,0.75);
+     -moz-box-shadow: 1px 0px 37px -3px rgba(0,0,0,0.75);
+          box-shadow: 1px 0px 37px -3px rgba(0,0,0,0.75);
+}
+
+.alert-js-header {
+  border-bottom: 1px solid #dedede;
+  border-radius: 0;
+  padding: 12px;
+  text-align: center;
+}
+
+.alert-js-header h1 {
+  font-size: 1.5em;
+  color: #222;
+}
+
+.alert-js-header h2 {
+  font-size: 0.9em;
+  line-height: 1em;
+  padding-top: 2px;
+}
+
+.alert-js-body {
+  padding: 25px;
+  font-size: 1em;
+  line-height: 1.125em;
+  width: auto;
+}
+
+.alert-js-footer {
+  padding: 10px;
+  text-align: right;
+  border-top: 1px solid #dedede;
+}
+
+.alert-js-footer button {
+  margin: 5px;
+  min-width: 15%;
+}
+
+.alert-js-btn {
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  font-size: 0.875em;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+
+.alert-js-btn-ok:hover {
+    background: rgba(68, 127, 68, 1);
+    -webkit-transition: all 1s ease 0.3s;
+       -moz-transition: all 1s ease 0.3s;
+         -o-transition: all 1s ease 0.3s;
+            transition: all 1s ease 0.3s;
+}
+
+.alert-js-btn-cancel:hover {
+    background: rgba(185, 62, 62, 1);
+    -webkit-transition: all 1s ease 0.3s;
+       -moz-transition: all 1s ease 0.3s;
+         -o-transition: all 1s ease 0.3s;
+            transition: all 1s ease 0.3s;
+}
+
+
+.alert-js-btn-ok {
+  background-color: #5cb85c;
+  border: 1px solid #4cae4c;
+  color: #fff;
+}
+
+.alert-js-btn-cancel {
+  background-color: #d9534f;
+  border: 1px solid #d43f3a;
+  color: #fff;
+}
+
+.alert-js-action {
+  padding: 10px;
+  text-align: right;
+  border-top: 1px solid #eee;
+}
+
+.alert-js-action a {
+  margin: 5px;
+}
+
+.alert-js-overlay {
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -moz-opacity: 0.4;          /* Netscape */
+  -khtml-opacity: 0.4;        /* Safari 1.x */
+  opacity: 0.4; 
+  z-index: 9998;
+}
+
+.alert-js-input {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  color: #555;
+  display: block;
+  padding: 6px 12px;
+  width: 100%;
+  margin-top: 5px;
+
+   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+          box-sizing: border-box; /* IE8+ */
+
+  -webkit-transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+     -moz-transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+       -o-transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+          transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
