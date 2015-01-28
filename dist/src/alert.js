@@ -5,7 +5,7 @@
  * Licensed under MIT
  */
 
-(function (window, document, undefined) {
+;(function (window, document, undefined) {
     'use strict';
 
     /**

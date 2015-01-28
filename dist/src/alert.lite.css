@@ -1,31 +1,27 @@
 /**
- * Default alert.js theme v0.0.0-alpha, 10.01.2014
+ * alert.js lite theme v0.0.0-alpha, 10.01.2014
  * @author Ankit Pokhrel (http://ankitpokhrel.com.np, @ankitpokhrel)
  */
 
 .alert-js {
   font-family: 'Arial', 'helvetica', 'sans-serif';
   background-color: #fff;
+  border-radius: 5px;
   -webkit-box-shadow: 1px 0px 37px -3px rgba(0,0,0,0.75);
      -moz-box-shadow: 1px 0px 37px -3px rgba(0,0,0,0.75);
           box-shadow: 1px 0px 37px -3px rgba(0,0,0,0.75);
 }
 
 .alert-js-header {
-  border-bottom: 1px solid transparent;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  border-bottom: 1px solid #dedede;
   border-radius: 0;
-  padding: 9px 14px;
-  background-color: #337ab7;
-  border-color: #337ab7;
-  color: #fff;
+  padding: 12px;
+  text-align: center;
 }
 
 .alert-js-header h1 {
-  font-size: 1.3em;
-  line-height: 1.5em;
-  color: #fff;
+  font-size: 1.5em;
+  color: #222;
 }
 
 .alert-js-header h2 {
@@ -35,7 +31,7 @@
 }
 
 .alert-js-body {
-  padding: 15px 15px 5px;
+  padding: 25px;
   font-size: 1em;
   line-height: 1.125em;
   width: auto;
@@ -44,6 +40,7 @@
 .alert-js-footer {
   padding: 10px;
   text-align: right;
+  border-top: 1px solid #dedede;
 }
 
 .alert-js-footer button {
@@ -61,11 +58,11 @@
   padding: 6px 12px;
   text-align: center;
   vertical-align: middle;
-  white-space: nowrap;
+  border-radius: 4px;
 }
 
 .alert-js-btn-ok:hover {
-    background: rgba(45, 143, 3, 1);
+    background: rgba(68, 127, 68, 1);
     -webkit-transition: all 1s ease 0.3s;
        -moz-transition: all 1s ease 0.3s;
          -o-transition: all 1s ease 0.3s;
@@ -73,7 +70,7 @@
 }
 
 .alert-js-btn-cancel:hover {
-    background: rgba(245, 0, 0, 1);
+    background: rgba(185, 62, 62, 1);
     -webkit-transition: all 1s ease 0.3s;
        -moz-transition: all 1s ease 0.3s;
          -o-transition: all 1s ease 0.3s;
@@ -82,13 +79,14 @@
 
 
 .alert-js-btn-ok {
-  background-color: #149414;
+  background-color: #5cb85c;
+  border: 1px solid #4cae4c;
   color: #fff;
 }
 
 .alert-js-btn-cancel {
-  background-color: #FF1414;
-  border-color: #d43f3a;
+  background-color: #d9534f;
+  border: 1px solid #d43f3a;
   color: #fff;
 }
 
