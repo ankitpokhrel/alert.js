@@ -1,4 +1,4 @@
-![Travis CI Build](https://travis-ci.org/ankitpokhrel/alert.js.svg?branch=master)
+![Travis CI Build](https://travis-ci.org/ankitpokhrel/alert.js.svg?branch=master) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 # Alert.js
 Beautifully crafted responsive javascript alert boxes.
 
