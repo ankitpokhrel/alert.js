@@ -1,3 +1,4 @@
+![Travis CI Build](https://travis-ci.org/ankitpokhrel/alert.js.svg?branch=master)
 # Alert.js
 Beautifully crafted responsive javascript alert boxes.
 
