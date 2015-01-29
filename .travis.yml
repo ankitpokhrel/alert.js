@@ -3,7 +3,9 @@ node_js:
   - "0.10"
 
 before_script:
-  - sudo grunt
+  - npm install -g grunt-cli
+  - npm install -g karma-cli
+  - grunt
 
 script:
-  - sudo karma start
+  - karma start
