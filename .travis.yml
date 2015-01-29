@@ -3,7 +3,7 @@ node_js:
   - "0.10"
 
 before_script:
-  - grunt
+  - sudo grunt
 
 script:
-  - karma start
+  - sudo karma start
