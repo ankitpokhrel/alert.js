@@ -2,10 +2,14 @@ language: node_js
 node_js:
   - "0.10"
 
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
 before_script:
   - npm install -g grunt-cli
   - npm install -g karma-cli
   - grunt
 
 script:
-  - karma start
+  - karma start --single-run
