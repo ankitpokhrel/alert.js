@@ -101,7 +101,7 @@
             },
 
             /* Assemble elements */
-            assemble = function(a) {
+            assemble = function( a ) {
                 document.body.appendChild(a.layer);
                 a.layer.appendChild(a.header);
                 a.layer.appendChild(a.body);
@@ -129,13 +129,13 @@
                     });
                 }
 
-                if( a.input !== null ) {
+                if( a.input !== null && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
                     a.input.focus();
                 }
             },
            
             /* Append element to DOM if it exists */
-            put = function(elm, prop) {
+            put = function( elm, prop ) {
                 if( prop !== null ) {
                     elm.appendChild(prop);
                 }
@@ -151,8 +151,10 @@
                 if( status && o.success !== null ) {
                     if(o.type === 'prompt') { 
                         o.success.call(this, a.artisan.input.value);
-                    } else { 
-                        o.success.apply(this); 
+                    } else if( o.text.charAt(0) === '#' ) {
+                        o.success.call(this, getCustomData(a.artisan.layer));
+                    } else {
+                        o.success.apply(this);
                     }
                 } else if( !status && o.cancelled !== null ) {
                     o.cancelled.apply(this);
@@ -167,8 +169,27 @@
                 }
             },
 
+            //fetch data from user defined inputs
+            getCustomData = function( wrapper ) {
+                var inp = wrapper.querySelectorAll('input, textarea, select'),
+                    data = {}, i, name;
+
+                if( inp.length > 0 ) {
+                    for( i = 0; i < inp.length; i++ ) {
+                        name = inp[i].getAttribute('name');
+                        if( name !== null ) {
+                            data[name] = inp[i].value;
+                        } else {
+                            data[i] = inp[i].value;
+                        }
+                    }
+                }
+
+                return data;
+            },
+
             /* Animate and show alert box */
-            animate = function(a) {
+            animate = function( a ) {
                 _.wait();
                 if( Object.keys(a).length > 0 ){
                     a = a.artisan;
@@ -211,7 +232,7 @@
 
             //fire animation, if any
             fire = function() {
-                if( !_lock ) {                
+                if( !_lock ) {
                     var o = fn(),
                         t = make.call(o.ref, o.opt);
 
@@ -417,6 +438,7 @@
             cancelButton: null,
             overlay: null,
             options: null,
+            customHTML: false,
 
             /**
              * Builder
@@ -460,8 +482,8 @@
                 return false;
             },
 
-            setOptions: function( options ) {
-                this.options = options;
+            setOptions: function( opt ) {
+                this.options = opt;
             }
         };
     };
@@ -541,36 +563,21 @@
 
         /* Adds a class to an element */
         addClass: function( elm, classes, cb ) {
-            var className = elm.className;
-            if(typeof classes !== 'string') {
-                for(var i = 0; i < classes.length; i++) {
-                    className += ' ' + classes[i];
-                }
-            } else {
-                className += ' ' + classes;
-            }
-
-            elm.className = className;
+            elm.className += (typeof classes !== 'string') ? ' ' + classes.join(' ') : ' ' + classes;
 
             if( typeof cb === 'function' ) {
                 cb.apply(null);
             }
 
-            return className;
+            return elm;
         },
 
         /* Removes class from given element */
         removeClass: function( elm, klass ) {
-            var klasses = elm.className.split(' '), i;
-
-            while( (i = klasses.indexOf(klass)) > -1 ) {
-                klasses = klasses.slice(0, i).concat( klasses.slice(++i) );
-            }
-
-            elm.className = klasses.join(' ');
+            elm.className = (' ' + elm.className + ' ').replace(' ' + klass + ' ', ' ');
 
             return elm;
-        }
+        }        
 
     };
 
