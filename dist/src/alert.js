@@ -163,6 +163,8 @@
                 if( o.complete !== null ) {
                     if( o.type === 'prompt' ) {
                         o.complete.call(this, status, a.artisan.input.value);
+                    } else if( o.text.charAt(0) === '#' ) {
+                        o.complete.call(this, status, getCustomData(a.artisan.layer));
                     } else {
                         o.complete.call(this, status);
                     }
