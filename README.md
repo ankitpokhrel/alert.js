@@ -2,6 +2,8 @@
 # Alert.js
 Beautifully crafted responsive javascript alert boxes.
 
+![Alert.js](http://ankitpokhrel.com.np/alert.js/img/alertjs.gif)
+
 This project is in its initial phase. We are continuously working on improvements to make this project better. 
 Some of the cool features are still in development. 
 
