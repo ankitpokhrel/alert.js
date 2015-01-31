@@ -91,7 +91,7 @@ alertjs.show({
 	}
 });
 ```
-![Alert](http://ankitpokhrel.com.np/alert.js/img/alertbox.gif)
+![Alert](http://ankitpokhrel.com.np/alert.js/img/alertt.gif)
 
 **Confirm dialog**  
 ```
