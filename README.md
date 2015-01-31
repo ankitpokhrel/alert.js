@@ -22,39 +22,6 @@ Current version is v0.0.0-alpha (~6KB minified)
 ## Browser Support
 All modern browsers and Internet Explorer 9+
 
-## Platforms we are testing on
-
-* Ubuntu 14.04 LTS  
-	- Mozilla Firefox 34+, Chrome & Chromium 38+, Opera 25+  
-
-* Windows 7 & 8  
-	- Internet Explorer 9+, Firefox 34+, Chrome 38+, Opera 25+, Safari 5.1.7  
-
-* iPhone 4 & 5  
-* Android (Samsung & Nexus)  
-
-### Setting up entire project locally
-1. Clone the repo  
-	```
-	git clone git@github.com:ankitpokhrel/alert.js.git
-	```  
-
-2. Install dev dependencies  
-	```
-	 npm install  
-	 npm update
-	```  
-
-3. Make changes. jshint and uglify using grunt.  
-	```
-	grunt
-	```
-
-4. Run jasmine tests using karma  
-	```
-	karma start
-	```
-
 ## Getting Started
 1. Include script  
 	```
@@ -250,6 +217,39 @@ window.onload = function() {
 | cancelled    | Available when user clicks CANCEL button. Gets input value when type is prompt.
 | complete     | This callback is available both when user clicks OK and CANCEL button. Gets a value to determine what user clicked. Also gets input value when type is prompt.
 
+## Platforms we are testing on
+
+* Ubuntu 14.04 LTS  
+	- Mozilla Firefox 34+, Chrome & Chromium 38+, Opera 25+  
+
+* Windows 7 & 8  
+	- Internet Explorer 9+, Firefox 34+, Chrome 38+, Opera 25+, Safari 5.1.7  
+
+* iPhone 4 & 5  
+* Android (Samsung & Nexus)  
+
+### Setting up entire project locally
+1. Clone the repo  
+	```
+	git clone git@github.com:ankitpokhrel/alert.js.git
+	```  
+
+2. Install dev dependencies  
+	```
+	 npm install  
+	 npm update
+	```  
+
+3. Make changes. jshint and uglify using grunt.  
+	```
+	grunt
+	```
+
+4. Run jasmine tests using karma  
+	```
+	karma start
+	```
+	
 ## Known bugs
 1. Animation is not smooth sometimes.
 
