@@ -29,6 +29,7 @@
 		<a href="javascript:void(0)" onclick="fromLeft()" class="link">Confirm</a>
 		<a href="javascript:void(0)" onclick="fromRight()" class="link">Prompt</a>
 		<a href="javascript:void(0)" onclick="fromBottom()" class="link">Bottom</a>
+		<a href="javascript:void(0)" onclick="register()" class="link">Register</a>
 		<div class="countdown">
 			<p>
 				New popup in
@@ -48,6 +49,21 @@
 				<br/>
 				<div class="fb-share-button" data-href="https://ankitpokhrel.com.np/alert.js" data-layout="button_count" class="social"></div>
 				<div class="social" style="position: relative; top: 3px; left: 5px;"><a class="twitter-share-button" href="https://twitter.com/share" data-via="twitterdev" data-url: "https://ankitpokhrel.com.np/alert.js">Tweet</a></div>
+			</div>
+		</div>
+		<div id="register" style="display: none">
+			<div style="width: 90%; margin: 0 auto">
+				<p>
+				 You can also use custom form in alert box. Data from evey input fields will be available in name value pairs. If the name attribute is not provided, numeric index is used. 
+				 <br/><br/>				
+				 <label>First Name</label> <input type="text" name="firstName" class="btn" /><br/>
+				 <label>Last Name</label> <input type="text" name="lastName" class="btn" /><br/>
+				 <label>Website</label> <input type="url" name="website" class="btn" /><br/>
+				 <label>Country</label>
+				 <select name="country" class="btn">
+				 	<option>Nepal</option>
+				 </select>
+				</p>				
 			</div>
 		</div>
 	</div>
@@ -113,7 +129,6 @@
 			};
 
 			alertjs.show(opt);
-
 		}
 
 		function fromRight() {			
@@ -153,6 +168,7 @@
 
 				},
 				complete: function(status, val) {
+					console.log(status);
 					if( status ) {
 						console.log(val);
 					} else {
@@ -176,7 +192,35 @@
 					console.log('some test');
 				}
 			});
-		}		
+		}	
+
+		function register() {
+			alertjs.show({
+				title: 'Register to our site!',
+				text: '#register',
+				buttons: {
+					OK: {
+						label: 'Next',
+					}
+				},
+				effect: 'shake',
+				overlay: false,
+				success: function(val) {
+					var str = '';
+					for( var prop in val ) {
+						str += "<label>" + prop + ":</label> " + val[prop] + "<br/>";
+					}
+					console.log(str);
+					alertjs.show({
+						title: 'You entered following values:',
+						text: str
+					});
+				},
+				complete: function( status, val ) {
+					console.log(status, val);
+				}
+			});
+		}	
 		
 		window.onload = function() {
 			var i = 10;
@@ -204,6 +248,12 @@
 						},
 						effect: 'shake',
 						overlay: false,
+						success: function(val) {
+							console.log(val);
+						},
+						complete: function( status, val ) {
+							console.log(status, val);
+						}
 					});
 				}, 	10000);
 		}

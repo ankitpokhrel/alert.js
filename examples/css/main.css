@@ -43,3 +43,13 @@ body {
 .social {
 	display: inline-block;
 }
+
+.btn {
+	padding: 3px;
+	margin: 3px;
+}
+
+#alertJS label {
+	display: inline-block;
+	width: 100px;
+}
