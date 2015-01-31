@@ -12,7 +12,7 @@ So feel free to try and report any bug found. Pull requests, issues, and plugin 
 > This project is written in plain javascript and has no dependencies.
 
 ## Version
-Current version is v0.0.0-alpha (5.9KB minified)
+Current version is v0.0.0-alpha (~6KB minified)
 
 ## We are currently working on
 * Demo page
@@ -158,8 +158,27 @@ Call alert box as follow
 alertjs.show({
 	title: 'Error!',
 	text: '#myCustomDialog', //must be an id
-	from: 'top',
+	from: 'top'
 });
+```
+
+**Custom form**
+You can also use custom form in alert box. Data from evey input fields will be available in name value pairs in success and complete callback. If the name attribute is not provided, numeric index is used.
+
+```
+//For example in success callback
+//you can do something like this
+success: function( val ) {
+			var str = '';
+			for( var prop in val ) {
+				str += "<label>" + prop + ":</label> " + val[prop] + "<br/>";
+			}
+
+			alertjs.show({
+				title: 'You entered following values:',
+				text: str
+			});
+		}
 ```
 
 **Using custom attribute for buttons**  
