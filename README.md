@@ -75,7 +75,7 @@ All modern browsers and Internet Explorer 9+
 ```
 alertjs.show({
 	title: 'Error!',
-	text: 'The action you performed is not permitted!',
+	text: 'You must fill all fields to continue',
 	from: 'top', //drop from top,
 	effect: 'ease-in-bounce',
 	wait: 500,
@@ -91,6 +91,8 @@ alertjs.show({
 	}
 });
 ```
+
+![Alert](http://ankitpokhrel.com.np/alert.js/img/alertbox.gif)
 
 **Confirm dialog**  
 ```
@@ -108,6 +110,7 @@ alertjs.show({
 	}
 });
 ```
+![Confirm](http://ankitpokhrel.com.np/alert.js/img/confirm.gif)
 
 **Prompt dialog**  
 ```
@@ -129,6 +132,7 @@ alertjs.show({
 	}
 });
 ```
+![Prompt](http://ankitpokhrel.com.np/alert.js/img/prompt.gif)
 
 **Using custom HTML for message**  
 HTML can be in any format but it should be wrapped with an ID
