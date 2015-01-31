@@ -190,6 +190,7 @@ alertjs.show({
 
 **Display alert 10sec after site loads**  
 ```
+//Demo: Like the one displayed at the very beginning of this page
 window.onload = function() {
 	setTimeout(function() {
 		alertjs.show({
@@ -211,9 +212,9 @@ window.onload = function() {
  Option     | Description                                                                                                      | Default      
 ------------|------------------------------------------------------------------------------------------------------------------|--------------
  type       | Alert box type: `alert`, `confirm` or `prompt`                                                                   | alert        
- title    | Main heading                                                                                                     | empty        
- subtitle | Displayed below main heading                                                                                     | empty        
- text    | Message to display in body section. `string` or `#elementId`. You can provide id of an element to get html data. | empty        
+ title    | Main heading                                                                                                     |         
+ subtitle | Displayed below main heading                                                                                     |         
+ text    | Message to display in body section. `string` or `#elementId`. You can provide id of an element to get html data. |         
  buttons    | Lists button settings. Can be `false`.                                                                           |              
  OK         | Used with buttons and provides settings for `OK` button.     | `{label: 'Ok', attrs: {id: 'btn_ok', 'class': 'alert-js-btn alert-js-btn-ok'}}`
  CANCEL     | Used with buttons and provides settings for `CANCEL` button. | `{label: 'Ok', attrs: {id: 'btn_ok', 'class': 'alert-js-btn alert-js-btn-ok'}}`
