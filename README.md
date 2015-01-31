@@ -22,6 +22,11 @@ Current version is v0.0.0-alpha (~6KB minified)
 ## Browser Support
 All modern browsers and Internet Explorer 9+
 
+## Installation  
+```
+bower install alert.js
+```
+
 ## Getting Started
 1. Include script  
 	```
