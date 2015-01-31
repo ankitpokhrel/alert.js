@@ -3,12 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<title>Alerts.js</title>
+	<title>Alert.js - Beautifully crafted responsive javascript alert boxes.</title>
 	<link rel="stylesheet" href="css/reset.css" />
 	<link rel="stylesheet" href="../theme/alert.core.css" />
-	<link rel="stylesheet" href="../theme/alert.lite.css" />
-	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="../theme/alert.lite.css" id="alertJStheme" />
+	<link rel="stylesheet" href="css/main.css?v=0.0.0" />
 	<script src="../lib/alert.js"></script>
+	<script>
+		function changeStylesheet() {
+			setTimeout(function(){
+				//wait for named hash to load
+				if( location.hash === '#default' ) {
+					document.getElementById('alertJStheme').href = '../theme/alert.default.css';
+					document.getElementById('lite').className = 'linkBtn';
+					document.getElementById('default').className = 'linkBtn active';
+				} else {
+					document.getElementById('alertJStheme').href = '../theme/alert.lite.css';
+					document.getElementById('default').className = 'linkBtn';
+					document.getElementById('lite').className = 'linkBtn active';
+				}
+			}, 10);
+		}
+
+		changeStylesheet();
+	</script>
 </head>
 <body>
 	<div id="fb-root"></div>
@@ -25,6 +43,10 @@
 	</script>
 
 	<div class="container">
+		<div class="theme">
+			<a href="#lite" class="linkBtn" onclick="changeStylesheet()" id="lite">Lite theme</a>
+			<a href="#default" class="linkBtn" onclick="changeStylesheet()" id="default">Default theme</a>
+		</div>
 		<a href="javascript:void(0)" onclick="fromTop()" class="link">Alert</a>
 		<a href="javascript:void(0)" onclick="fromLeft()" class="link">Confirm</a>
 		<a href="javascript:void(0)" onclick="fromRight()" class="link">Prompt</a>

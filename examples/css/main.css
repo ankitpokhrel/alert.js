@@ -9,7 +9,7 @@ body {
 	text-align: center;
 }
 
-.link {
+.link, .linkBtn {
 	padding: 10px;
 	border: 1px solid #5cb85c;
 	text-decoration: none;
@@ -19,6 +19,14 @@ body {
 	margin: 10px;
 	background: #5cb85c;
 	color: #fff;
+}
+
+.linkBtn {
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	    -ms-border-radius: 5px;
+	     -o-border-radius: 5px;
+	    	border-radius: 5px;
 }
 
 .countdown {
@@ -53,4 +61,14 @@ body {
 #alertJS label {
 	display: inline-block;
 	width: 100px;
+}
+
+.active {
+	background: #FFA500;
+	border: none;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	    -ms-border-radius: 5px;
+	     -o-border-radius: 5px;
+	    	border-radius: 5px;
 }
