@@ -91,7 +91,6 @@ alertjs.show({
 	}
 });
 ```
-
 ![Alert](http://ankitpokhrel.com.np/alert.js/img/alertbox.gif)
 
 **Confirm dialog**  
@@ -122,7 +121,16 @@ alertjs.show({
 	success: function( val ) {
 		//user clicked OK button
 		//input box value will be available here
-		console.log(val);
+		var value = 'Your name is ' + val;
+		if( val === '' ) {
+			value = 'You didn\'t type anything!';
+		}
+		alertjs.show({
+			title: 'Alert.js',
+			from: 'top',
+			effect: 'ease-in-bounce',
+			text: value
+		});
 	},
 	cancelled: function() {
 		//user clicked cancel button
