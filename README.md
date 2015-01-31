@@ -162,7 +162,7 @@ alertjs.show({
 });
 ```
 
-**Custom form**
+**Custom form**  
 You can also use custom form in alert box. Data from evey input fields will be available in name value pairs in success and complete callback. If the name attribute is not provided, numeric index is used.
 
 ```
@@ -180,6 +180,7 @@ success: function( val ) {
 			});
 		}
 ```
+![Custom Form](http://ankitpokhrel.com.np/alert.js/img/form.gif)
 
 **Using custom attribute for buttons**  
 You can provide label and attributes for button as shown below.
