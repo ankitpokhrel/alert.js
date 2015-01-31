@@ -149,25 +149,35 @@
                 a.hide();
 
                 if( status && o.success !== null ) {
-                    if(o.type === 'prompt') { 
-                        o.success.call(this, a.artisan.input.value);
-                    } else if( o.text.charAt(0) === '#' ) {
-                        o.success.call(this, getCustomData(a.artisan.layer));
-                    } else {
-                        o.success.apply(this);
-                    }
+                    successCb(a);
                 } else if( !status && o.cancelled !== null ) {
                     o.cancelled.apply(this);
                 }
 
                 if( o.complete !== null ) {
-                    if( o.type === 'prompt' ) {
-                        o.complete.call(this, status, a.artisan.input.value);
-                    } else if( o.text.charAt(0) === '#' ) {
-                        o.complete.call(this, status, getCustomData(a.artisan.layer));
-                    } else {
-                        o.complete.call(this, status);
-                    }
+                    completeCb(a, status);
+                }
+            },
+
+            successCb = function(a) {
+                var o = a.artisan.options;
+                if(o.type === 'prompt') { 
+                    o.success.call(this, a.artisan.input.value);
+                } else if( o.text.charAt(0) === '#' ) {
+                    o.success.call(this, getCustomData(a.artisan.layer));
+                } else {
+                    o.success.apply(this);
+                }
+            },
+
+            completeCb = function(a, status) {
+                var o = a.artisan.options;
+                if( o.type === 'prompt' ) {
+                    o.complete.call(this, status, a.artisan.input.value);
+                } else if( o.text.charAt(0) === '#' ) {
+                    o.complete.call(this, status, getCustomData(a.artisan.layer));
+                } else {
+                    o.complete.call(this, status);
                 }
             },
 
