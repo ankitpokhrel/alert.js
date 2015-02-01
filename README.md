@@ -3,12 +3,6 @@
 Beautifully crafted responsive javascript alert boxes.
 
 ![Alert.js](http://ankitpokhrel.com.np/alert.js/img/alertjs.gif)
-
-This project is in its initial phase. We are continuously working on improvements to make this project better. 
-Some of the cool features are still in development. 
-
-So feel free to try and report any bug found. Pull requests, issues, and plugin recommendations are more than welcome!
-
 > This project is written in plain javascript and has no dependencies.
 
 ## Version
@@ -254,6 +248,9 @@ window.onload = function() {
 	```
 	karma start
 	```
+	
+## Contribution
+Feel free to fork, try and report any bug found. Pull requests, issues, and plugin recommendations are more than welcome!
 	
 ## Known bugs
 1. Animation is not smooth sometimes.
