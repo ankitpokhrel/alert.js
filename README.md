@@ -6,7 +6,7 @@ Beautifully crafted responsive javascript alert boxes.
 > This project is written in plain javascript and has no dependencies.
 
 ## Version
-Current version is v0.0.0-alpha (~6KB minified)
+Current version is v0.0.0-beta (~6KB minified)
 
 ## We are currently working on
 * Demo page
