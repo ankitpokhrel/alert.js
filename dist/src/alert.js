@@ -1,10 +1,9 @@
 /*!
- * alert.js v0.0.0-alpha, 10.01.2015
- * Beautifully crafted javascript dialog boxes.
+ * alert.js v0.0.0-beta, 10.01.2015
+ * Beautifully crafted javascript alert boxes.
  * By Ankit Pokhrel (http://ankitpokhrel.com.np, @ankitpokhrel)
  * Licensed under MIT
  */
-
 ;(function (window, document, undefined) {
     'use strict';
 
