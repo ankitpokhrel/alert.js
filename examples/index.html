@@ -52,6 +52,7 @@
 		<a href="javascript:void(0)" onclick="fromRight()" class="link">Prompt</a>
 		<a href="javascript:void(0)" onclick="fromBottom()" class="link">Bottom</a>
 		<a href="javascript:void(0)" onclick="register()" class="link">Register</a>
+		<a href="javascript:void(0)" onclick="noHeader()" class="link">No Header</a>
 		<div class="countdown">
 			<p>
 				New popup in
@@ -240,6 +241,26 @@
 				},
 				complete: function( status, val ) {
 					console.log(status, val);
+				}
+			});
+		}
+
+		function noHeader() {			
+			alertjs.show({
+				text: 'Oops! Something went wrong! Please try again.',
+				from: 'top',
+				effect: 'ease-in-bounce',
+				header: false,
+				success: function() {
+					//user clicked ok button
+				},
+				cancelled: function() {
+					//user clicked cancel button
+				},
+				complete: function( val ) {
+					//this callback is available everytime
+					//val will help you decide if user clicked
+					//OK or Cancel
 				}
 			});
 		}	
