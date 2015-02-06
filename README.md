@@ -205,6 +205,7 @@ window.onload = function() {
  OK         | Used with buttons and provides settings for `OK` button.     | `{label: 'Ok', attrs: {id: 'btn_ok', 'class': 'alert-js-btn alert-js-btn-ok'}}`
  CANCEL     | Used with buttons and provides settings for `CANCEL` button. | `{label: 'Ok', attrs: {id: 'btn_ok', 'class': 'alert-js-btn alert-js-btn-ok'}}`
  overlay    | Show/hide overlay. `true` or `false`.                                                                            | true         
+ header     | Show/hide header element. `true` or `false`.                                                                     | true  
  effect     | Animation effect to show. `ease-in`, `ease-in-bounce` or `shake`                                                 | ease-in      
  from       | Determines where to start effect from. `top`, `left`, `right`, `bottom`, `middle`.                               | top          
  wait       | Delay in milliseconds. Wait for certain time before showing alert.                                               | 0            
