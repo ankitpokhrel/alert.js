@@ -263,3 +263,4 @@ alert.js is licensed under MIT http://www.opensource.org/licenses/MIT
 ## Copyright
 
 Copyright &copy;, Ankit Pokhrel (http://ankitpokhrel.com.np, @ankitpokhrel)
+[![Analytics](https://ga-beacon.appspot.com/UA-59482306-1/ankitpokhrel/readme?pixel)](https://github.com/igrigorik/ga-beacon)
