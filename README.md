@@ -9,9 +9,9 @@ Beautifully crafted responsive javascript alert boxes.
 Current version is v0.0.0-beta (~6KB minified)
 
 ## We are currently working on
-* Demo page
-* Extended documentation
-* Tests
+* ~~Demo page~~
+* ~~Extended documentation~~
+* Better tests
 
 ## Browser Support
 All modern browsers and Internet Explorer 9+
