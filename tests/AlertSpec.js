@@ -183,7 +183,7 @@ describe('Alert library', function() {
 		it('check entire generated htmlnode', function() {
 			expect(a.artisan.layer).not.toBeNull();
 
-			var html = '<section class="alert-js prompt alert-js-animation-left" id="alertJS">' +
+			var html = '<section class="alert-js alert-js-animation-left prompt" id="alertJS">' +
 							'<header class="alert-js-header">' +
 								'<h1>Test heading</h1>' + 
 								'<h2>Test subheading</h2>' + 
