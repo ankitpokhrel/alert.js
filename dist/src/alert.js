@@ -39,9 +39,14 @@
                     }
                 },
                 overlay: true,
+                header: true,
                 effect: 'ease-in',
                 wait: 0,
                 from: 'middle',
+                x: '50%',
+                y: '80%',
+                hideOnClick: false,
+                showTime: 2000,
                 success: null,
                 cancelled: null,
                 complete: null
@@ -64,15 +69,25 @@
                 //we don't need cancel button for alert box
                 if( a.options.type === 'alert' ) {
                     a.options.buttons.CANCEL = false;
+                }
+
+                if( a.options.type === 'flash' ) {
+                    a.options.overlay = false;
+                    a.options.header = false;
+                    a.options.from = 'middle';
+                    options.buttons = false;
                 }                
 
                 //create elements
                 a.create('layer');
-                a.create('header');
-                a.create('title');
 
-                if( a.options.subtitle !== '' ) {
-                    a.create('subtitle');
+                if( a.options.header !== false ) {
+                    a.create('header');
+                    a.create('title');
+                    
+                    if( a.options.subtitle !== '' ) {
+                        a.create('subtitle');
+                    }
                 }
                 
                 a.create('body');
@@ -102,7 +117,8 @@
             /* Assemble elements */
             assemble = function( a ) {
                 document.body.appendChild(a.layer);
-                a.layer.appendChild(a.header);
+                //a.layer.appendChild(a.header);
+                put(a.layer, a.header);
                 a.layer.appendChild(a.body);
                 put(a.header, a.title);
                 put(a.header, a.subtitle);
@@ -125,6 +141,12 @@
                     //attach listener   
                     listen(a.cancelButton, 'click', function() {
                         addEvent(false);
+                    });
+                }
+
+                if( a.options.type === 'flash' ) {
+                    listen(a.layer, 'click', function() {
+                        addEvent(true);
                     });
                 }
 
@@ -216,10 +238,18 @@
                         //start animation by switching classes
                         _.addClass(a.layer, 'alert-js-' + a.options.effect, function() {
                             //wait sometime for smooth animation
-                            setTimeout(function(){
+                            setTimeout(function() {
                                 _.removeClass(a.layer, 'alert-js-animation-' + a.options.from);
                             }, 10);
                         });
+
+                        if( a.options.type === 'flash' ) {
+                            a.layer.style.left = a.options.x;
+                            a.layer.style.top = a.options.y;
+                            setTimeout(function() {
+                                fn().ref.hide();
+                            }, a.options.showTime);
+                        }
 
                     }, a.options.wait);
                 }
@@ -296,20 +326,20 @@
                         overlay = me.artisan.overlay,
                         opt = me.artisan.options;
 
-                       _.addClass(elm, 'alert-js-animation-' + opt.from, function() {
-                            if( _pool.length > 0 ) {
-                                setTimeout(function() {
-                                    document.body.removeChild(overlay);
-                                    document.body.removeChild(elm);
-                                    _pool.splice(0, 1);
-                                    _.release();
-                                    if( _pool.length > 0 ) {
-                                        fire();
-                                    }
-                                }, 400);
-                            }
+                    _.addClass(elm, 'alert-js-animation-' + opt.from, function() {
+                        if( _pool.length > 0 ) {
+                            setTimeout(function() {
+                                document.body.removeChild(overlay);
+                                document.body.removeChild(elm);
+                                _pool.splice(0, 1);
+                                _.release();
+                                if( _pool.length > 0 ) {
+                                    fire();
+                                }
+                            }, 400);
+                        }
 
-                       });
+                    });
                 }
                
             };
@@ -331,7 +361,7 @@
             createOuterLayer = function() {
                 var layer = document.createElement('section');
                 layer.setAttribute('id', 'alertJS');
-                layer.className = 'alert-js alert-js-animation-' + this.options.from;
+                layer.className = 'alert-js alert-js-animation-' + this.options.from + ' ' + this.options.type;
 
                 return layer;
             },
@@ -523,7 +553,7 @@
 
         /* All valid alert boxes */
         validTypes: function() {
-            return ['alert', 'confirm', 'prompt'];
+            return ['alert', 'confirm', 'prompt', 'flash'];
         },
 
         /* Checks if value exists in an array */
