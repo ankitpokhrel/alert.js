@@ -1,5 +1,5 @@
 /*!
- * alert.js v0.0.0-beta, 10.01.2015
+ * alert.js v0.0.0, 03.22.2015
  * Beautifully crafted javascript alert boxes.
  * By Ankit Pokhrel (http://ankitpokhrel.com.np, @ankitpokhrel)
  * Licensed under MIT
@@ -71,12 +71,7 @@
                     a.options.buttons.CANCEL = false;
                 }
 
-                if( a.options.type === 'flash' ) {
-                    a.options.overlay = false;
-                    a.options.header = false;
-                    a.options.from = 'middle';
-                    options.buttons = false;
-                }                
+                flashSettings(a, options);
 
                 //create elements
                 a.create('layer');
@@ -159,6 +154,16 @@
             put = function( elm, prop ) {
                 if( prop !== null ) {
                     elm.appendChild(prop);
+                }
+            },
+
+            //general settings for flash alert type
+            flashSettings = function( a, options ) {
+                if( a.options.type === 'flash' ) {
+                    a.options.overlay = false;
+                    a.options.header = false;
+                    a.options.from = 'middle';
+                    options.buttons = false;
                 }
             },
 
