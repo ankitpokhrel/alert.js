@@ -8,12 +8,6 @@ Beautifully crafted responsive javascript alert boxes.
 ## Version
 Current version is v0.0.0 (~6.5KB minified)
 
-## We are currently working on
-* ~~Demo page~~
-* ~~Extended documentation~~
-* Better tests
-* New features
-
 ## Browser Support
 All modern browsers and Internet Explorer 9+
 
