@@ -65,7 +65,7 @@ describe('Alert library', function() {
 						label: 'Continue',
 						attrs: {
 							id: 'continue_btn',
-							'class': 'alert-js-btn alert-js-btn-ok'
+							class: 'alert-js-btn alert-js-btn-ok'
 						}
 					};
 			expect( JSON.stringify(a.artisan.options.buttons.OK) ).toEqual( JSON.stringify(ok) );
@@ -76,7 +76,7 @@ describe('Alert library', function() {
 						label: 'Back',
 						attrs: {
 							id: 'btn_cancel',
-							'class': 'alert-js-btn alert-js-btn-cancel btn btn-back'
+							class: 'alert-js-btn alert-js-btn-cancel btn btn-back'
 						}
 					};
 			expect( JSON.stringify(a.artisan.options.buttons.CANCEL) ).toEqual( JSON.stringify(cancel) );
@@ -102,7 +102,7 @@ describe('Alert library', function() {
 		it('create htmlnode for okButton', function() {
 			expect(a.artisan.okButton).not.toBeNull();
 
-			var btn = '<button class="alert-js-btn alert-js-btn-ok" id="continue_btn">Continue</button>';
+			var btn = '<button id="continue_btn" class="alert-js-btn alert-js-btn-ok">Continue</button>';
 			expect(a.artisan.okButton.outerHTML).toBe(btn);
 		});
 	});
@@ -111,7 +111,7 @@ describe('Alert library', function() {
 		it('create htmlnode for cancelButton', function() {
 			expect(a.artisan.cancelButton).not.toBeNull();
 
-			var btn = '<button class="alert-js-btn alert-js-btn-cancel btn btn-back" id="btn_cancel">Back</button>';
+			var btn = '<button id="btn_cancel" class="alert-js-btn alert-js-btn-cancel btn btn-back">Back</button>';
 			expect(a.artisan.cancelButton.outerHTML).toBe(btn);
 		});
 	});
@@ -121,8 +121,8 @@ describe('Alert library', function() {
 			expect(a.artisan.footer).not.toBeNull();
 
 			var footer = '<footer class="alert-js-footer">' + 
-							'<button class="alert-js-btn alert-js-btn-ok" id="continue_btn">Continue</button>' + 
-							'<button class="alert-js-btn alert-js-btn-cancel btn btn-back" id="btn_cancel">Back</button>' + 
+							'<button id="continue_btn" class="alert-js-btn alert-js-btn-ok">Continue</button>' + 
+							'<button id="btn_cancel" class="alert-js-btn alert-js-btn-cancel btn btn-back">Back</button>' + 
 						'</footer>';
 			expect(a.artisan.footer.outerHTML).toBe(footer);
 		});
@@ -164,7 +164,7 @@ describe('Alert library', function() {
 
 			var body = '<div class="alert-js-body">' + 
 							'Test message' + 
-							'<input class="alert-js-input" type="text">' + 
+							'<input type="text" class="alert-js-input">' + 
 						'</div>';
 			expect(a.artisan.body.outerHTML).toBe(body);
 		});
@@ -174,7 +174,7 @@ describe('Alert library', function() {
 		it('create htmlnode for input element', function() {
 			expect(a.artisan.input).not.toBeNull();
 
-			var inp = '<input class="alert-js-input" type="text">';
+			var inp = '<input type="text" class="alert-js-input">';
 			expect(a.artisan.input.outerHTML).toBe(inp);
 		});
 	});
@@ -183,18 +183,18 @@ describe('Alert library', function() {
 		it('check entire generated htmlnode', function() {
 			expect(a.artisan.layer).not.toBeNull();
 
-			var html = '<section class="alert-js alert-js-animation-left prompt" id="alertJS">' +
+			var html = '<section id="alertJS" class="alert-js alert-js-animation-left prompt">' +
 							'<header class="alert-js-header">' +
 								'<h1>Test heading</h1>' + 
 								'<h2>Test subheading</h2>' + 
 							'</header>' + 
 							'<div class="alert-js-body">' + 
 								'Test message' + 
-								'<input class="alert-js-input" type="text">' + 
+								'<input type="text" class="alert-js-input">' + 
 							'</div>' + 
 							'<footer class="alert-js-footer">' + 
-								'<button class="alert-js-btn alert-js-btn-ok" id="continue_btn">Continue</button>' + 
-								'<button class="alert-js-btn alert-js-btn-cancel btn btn-back" id="btn_cancel">Back</button>' + 
+								'<button id="continue_btn" class="alert-js-btn alert-js-btn-ok">Continue</button>' + 
+								'<button id="btn_cancel" class="alert-js-btn alert-js-btn-cancel btn btn-back">Back</button>' + 
 							'</footer>' + 
 						'</section>';
 			expect(a.artisan.layer.outerHTML).toBe(html);
