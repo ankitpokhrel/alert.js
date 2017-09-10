@@ -1,4 +1,8 @@
-![Travis CI Build](https://travis-ci.org/ankitpokhrel/alert.js.svg?branch=master) [![devDependency Status](https://david-dm.org/ankitpokhrel/alert.js/dev-status.svg)](https://david-dm.org/ankitpokhrel/alert.js#info=devDependencies) [![Codacy Badge](https://www.codacy.com/project/badge/de58b013d63b4756a87d417d323ba9da)](https://www.codacy.com/public/ankitpokhrel/alert.js) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) 
+[![Travis CI Build](https://travis-ci.org/ankitpokhrel/alert.js.svg?branch=master)](https://travis-ci.org/ankitpokhrel/alert.js)
+[![devDependency Status](https://david-dm.org/ankitpokhrel/alert.js/dev-status.svg)](https://david-dm.org/ankitpokhrel/alert.js#info=devDependencies)
+[![Codacy Badge](https://www.codacy.com/project/badge/de58b013d63b4756a87d417d323ba9da)](https://www.codacy.com/public/ankitpokhrel/alert.js)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+
 # Alert.js
 Beautifully crafted responsive javascript alert boxes.
 
