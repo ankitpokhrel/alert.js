@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 		uglify: {
 			options: {
 				mangle: {
-					except: ['alertjs']
+				  properties: true
 				},
 				banner: '/*!\n * <%= pkg.name %> v<%= pkg.version %>, <%= grunt.template.today("dd.mm.yyyy") %>\n * <%= pkg.description %>\n * By <%= pkg.author %> (<%= pkg.homepage %>, @ankitpokhrel)\n * Licenced under <%= pkg.license %>\n */\n'
 			},
